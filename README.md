@@ -1,6 +1,6 @@
-# AI Workbench Skills: /yap and /plan-rfp
+# AI Knowledge Base Skills: /yap and /plan-rfp
 
-**概要:** 話すだけでアイデアや意見がノートに整理されていく「/yap」と、疑問をリサーチ依頼書にしてAIチームに調べさせ、要約付きレポートとして保存する「/plan-rfp」の2つのスキルです。どちらも Claude Code、OpenAI Codex、Cursor、Gemini CLI など Agent Skills 形式に対応したAIで使え、あなたのノートのフォルダ（Obsidian など）の中だけに書き込みます。使い続けると、アイデア・発信ネタ・意見・調査がたまる自分専用の「AIワークベンチ」になります。
+**概要:** 話すだけでアイデアや意見がノートに整理されていく「/yap」と、疑問をリサーチ依頼書にしてAIチームに調べさせ、要約付きレポートとして保存する「/plan-rfp」の2つのスキルです。どちらも Claude Code、OpenAI Codex、Cursor、Gemini CLI など Agent Skills 形式に対応したAIで使え、あなたのノートのフォルダ（Obsidian など）の中だけに書き込みます。使い続けると、アイデア・発信ネタ・意見・調査がたまる自分専用の「AIのための知識ベース」になります。
 
 **日本語の説明は下にあります。** (English first, Japanese below.)
 
@@ -8,12 +8,12 @@
 
 ## English
 
-Two agent skills that turn an AI assistant into a workbench for your thinking.
+Two agent skills that grow a knowledge base for your AI: your ideas, opinions, plans and research, filed so your AI can find and build on them.
 
 - **/yap**: you talk (or type) a brain dump; the AI splits it into items, checks each one (does it already exist, is the claim true, is the idea weak), files it in the right place in your notes folder, and answers you. It starts from a well-known structure and learns a better one from what you actually say, proposing one change at a time and never reorganising without your yes.
 - **/plan-rfp**: turns a question into a short research brief, runs it on request with a team of AI agents sized to the question, and saves a report with a 400 to 600 word summary into `Research/unread/`. Tick "Read" on a report and the next run moves it to `Research/read/`. All working files stay in one folder.
 
-Used together: /yap catches the ideas and opinions, /plan-rfp brings back the evidence, and both file everything cleanly. After a few weeks you have a workbench of ideas, content plans, dated opinions, hypotheses with evidence, and research reports, all as plain Markdown you own.
+Used together: /yap catches the ideas and opinions, /plan-rfp brings back the evidence, and both file everything cleanly. After a few weeks you have a knowledge base of ideas, content plans, dated opinions, hypotheses with evidence, and research reports, all as plain Markdown you own.
 
 ### Install
 Each skill is a folder with a `SKILL.md` (the [Agent Skills](https://agentskills.io/specification) format). Copy the folder you want into your tool's skills folder:
@@ -28,18 +28,18 @@ Each skill is a folder with a `SKILL.md` (the [Agent Skills](https://agentskills
 
 macOS or Linux:
 ```sh
-git clone https://github.com/japsnap/ai-workbench-skills
-cp -r ai-workbench-skills/yap ai-workbench-skills/plan-rfp ~/.claude/skills/
+git clone https://github.com/japsnap/ai-knowledge-base-skills
+cp -r ai-knowledge-base-skills/yap ai-knowledge-base-skills/plan-rfp ~/.claude/skills/
 ```
 Windows PowerShell, one line at a time:
 ```powershell
-git clone https://github.com/japsnap/ai-workbench-skills
-Copy-Item -Recurse ai-workbench-skills\yap, ai-workbench-skills\plan-rfp $HOME\.claude\skills\
+git clone https://github.com/japsnap/ai-knowledge-base-skills
+Copy-Item -Recurse ai-knowledge-base-skills\yap, ai-knowledge-base-skills\plan-rfp $HOME\.claude\skills\
 ```
 
 ### First use
 - Starting a skill: in Claude Code type `/yap` or `/plan-rfp`; in Codex type `$yap` or `$plan-rfp`; in other tools ask in words ("yap this: ...", "park this research: ...") and the tool picks the skill. Gemini CLI asks your permission the first time, and Agent Skills may need turning on in its settings.
-- `/yap` then talk. On the first run it asks where your notes live and either maps your existing folders or proposes a starter structure (see `yap/references/structures.md`: Workbench, PARA, Johnny.Decimal, GTD, Zettelkasten, ACE, and how to combine them).
+- `/yap` then talk. On the first run it asks where your notes live and either maps your existing folders or proposes a starter structure (see `yap/references/structures.md`: Starter, PARA, Johnny.Decimal, GTD, Zettelkasten, ACE, and how to combine them).
 - `/plan-rfp` then your question. On the first run it asks where research should live, which AI models you use (a strong one for planning and judging, a fast one for gathering; the same model can do both), and the report language.
 
 ### What these skills do and do not do
@@ -58,7 +58,7 @@ MIT. See `LICENSE`.
 
 ## 日本語
 
-AIアシスタントを「考えるための作業台」に変える2つのスキルです。
+AIが読み、活用できる「自分の知識ベース」を育てる2つのスキルです。
 
 - **/yap（ヤップ）**: 思いついたことを話す（または打つ）と、AIが項目ごとに分け、それぞれを確認し（すでに存在するか、主張は正しいか、アイデアとして弱くないか）、ノートのフォルダの適切な場所に保存して、短く返答します。最初は定番の構成から始め、あなたが実際に話す内容に合わせて、より良い構成を一つずつ提案します。あなたの「はい」なしに整理し直すことはありません。
 - **/plan-rfp**: 疑問を短いリサーチ依頼書（RFP）にし、頼まれたら疑問の重さに合わせたAIチームで調べ、400〜600語（日本語なら約800〜1,200字）の要約付きレポートを `Research/unread/`（未読）に保存します。レポートの「Read」にチェックを入れると、次の実行時に `Research/read/`（既読）へ移ります。途中の作業ファイルは一つのフォルダにまとまります。
@@ -70,7 +70,7 @@ AIアシスタントを「考えるための作業台」に変える2つのス�
 
 ### 最初の使い方
 - 呼び出し方はツールごとに違います。Claude Code では `/yap` や `/plan-rfp`、Codex では `$yap` や `$plan-rfp`。その他のツールでは「yap this: …」「park this research: …」のように頼むと、AIがスキルを選びます。Gemini CLI では初回に許可を求められ、設定で Agent Skills を有効にする必要がある場合があります。
-- `/yap` のあとに話すだけ。初回は、ノートの場所を聞き、既存のフォルダをそのまま使うか、初期構成（Workbench、PARA、Johnny.Decimal、GTD、Zettelkasten、ACE と、その組み合わせ方は `yap/references/structures.md`）を提案します。
+- `/yap` のあとに話すだけ。初回は、ノートの場所を聞き、既存のフォルダをそのまま使うか、初期構成（Starter、PARA、Johnny.Decimal、GTD、Zettelkasten、ACE と、その組み合わせ方は `yap/references/structures.md`）を提案します。
 - `/plan-rfp` のあとに疑問を書くだけ。初回は、リサーチの保存場所、使っているAIモデル（計画と判断用の強いモデル、情報集め用の速いモデル。同じモデルでも可）、レポートの言語を聞きます。
 
 ### できること・しないこと

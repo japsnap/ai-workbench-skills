@@ -6,33 +6,33 @@ license: MIT
 
 # /yap: talk, and your notes organise themselves
 
-**概要（日本語）:** 思いついたことを話す（または打つ）だけで、AIが内容ごとに分けて、ノートのフォルダの適切な場所に保存します。保存する前に「すでに存在するか」「事実として正しいか」を軽く確認し、話した内容への短い返答もします。最初は定番の構成（PARA、GTD、Zettelkasten などを組み合わせた初期設定）から始め、使い続けるうちに、あなたの話す内容に合わせて構成の変更を一つずつ提案します（勝手には変えません）。調べるべき疑問は /plan-rfp でリサーチ依頼にできます。続けるうちに、アイデア・発信ネタ・意見・調査がたまる自分専用の「AIワークベンチ」になります。日本語の詳しい説明は README の後半にあります。
+**概要（日本語）:** 思いついたことを話す（または打つ）だけで、AIが内容ごとに分けて、ノートのフォルダの適切な場所に保存します。保存する前に「すでに存在するか」「事実として正しいか」を軽く確認し、話した内容への短い返答もします。最初は定番の構成（PARA、GTD、Zettelkasten などを組み合わせた初期設定）から始め、使い続けるうちに、あなたの話す内容に合わせて構成の変更を一つずつ提案します（勝手には変えません）。調べるべき疑問は /plan-rfp でリサーチ依頼にできます。続けるうちに、アイデア・発信ネタ・意見・調査がたまる自分専用の「AIのための知識ベース」になります。日本語の詳しい説明は README の後半にあります。
 
-**Summary (English):** you talk; the AI splits the dump into items, checks each one (does it already exist, is it true), files it in the right place, and answers you briefly. It starts from a well-known default structure and, as you keep using it, proposes one structure change at a time to fit what you actually talk about, never reorganising on its own. Questions worth researching go to /plan-rfp. Used regularly, it grows into an AI workbench for your ideas, content, opinions and research.
+**Summary (English):** you talk; the AI splits the dump into items, checks each one (does it already exist, is it true), files it in the right place, and answers you briefly. It starts from a well-known default structure and, as you keep using it, proposes one structure change at a time to fit what you actually talk about, never reorganising on its own. Questions worth researching go to /plan-rfp. Used regularly, it grows into a knowledge base for your AI: your ideas, content, opinions and research.
 
 ## Files this skill keeps (everything about the system in one place)
 ```
 <notes folder>/
-  _workbench/
+  _kb/
     structure.md      the routing table, the rules, the routing memory and pending proposals (the "schema")
     raw/              every original dump, word for word, dated (never edited)
 ```
 Everything else is the user's notes. The skill writes only inside the notes folder.
 
 ## First run: set up once
-If `_workbench/structure.md` does not exist:
+If `_kb/structure.md` does not exist:
 1. Ask where the notes folder is (an Obsidian vault or any folder). Default: the current folder.
-2. Look at what is already there. If the folder already has a structure, map it: write a routing table that points each item type (below) at the existing folders, and create nothing new. If it is empty or nearly empty, propose the **Workbench** preset from `references/structures.md`, show it as a short tree, and mention the alternatives in one line (PARA, Johnny.Decimal numbering, GTD lists, Zettelkasten layers, ACE). Create folders only after the user agrees.
+2. Look at what is already there. If the folder already has a structure, map it: write a routing table that points each item type (below) at the existing folders, and create nothing new. If it is empty or nearly empty, propose the **Starter** preset from `references/structures.md`, show it as a short tree, and mention the alternatives in one line (PARA, Johnny.Decimal numbering, GTD lists, Zettelkasten layers, ACE). Create folders only after the user agrees.
 3. Ask two optional preferences: the language notes are written in (default: the language of the dump), and whether to keep a forecast log for opinions (default: off).
-4. Write `_workbench/structure.md` using the template at the end of `references/structures.md`.
+4. Write `_kb/structure.md` using the template at the end of `references/structures.md`.
 
 ## Every run
-1. **Read** `_workbench/structure.md`.
-2. **Save the dump** word for word to `_workbench/raw/<YYYY-MM-DD>-<short-slug>.md`.
+1. **Read** `_kb/structure.md`.
+2. **Save the dump** word for word to `_kb/raw/<YYYY-MM-DD>-<short-slug>.md`.
 3. **Split** it into items, one idea per item. Voice rambling is fine; find the threads.
 4. **Classify** each item as one type:
 
-| Type | What it is | Default home (Workbench preset) | Required fields |
+| Type | What it is | Default home (Starter preset) | Required fields |
 |---|---|---|---|
 | Idea | Something to build: a product, a tool, a system improvement | `Ideas/` | What, Origin, Stage |
 | Content | Something to publish: a post, thread, video, essay | `Content/later/<topic>/` | Hook, format, platform (or TBD) |
@@ -80,6 +80,6 @@ Each proposal is one line with a yes or no: what changes, why (the counts), and 
 - No filler in the reply.
 
 ## Works with /plan-rfp
-`/plan-rfp` turns research questions into briefs and runs them, saving reports into `Research/` (unread, then read). /yap routes questions there, and a finished report can be linked from the idea or take it informs. Together they make the workbench: ideas and opinions in, evidence back.
+`/plan-rfp` turns research questions into briefs and runs them, saving reports into `Research/` (unread, then read). /yap routes questions there, and a finished report can be linked from the idea or take it informs. Together they grow your knowledge base: ideas and opinions in, evidence back.
 
 See `references/structures.md` for the presets, how to combine them, and the `structure.md` template.
